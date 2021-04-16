@@ -27,8 +27,33 @@ Réorganisation des css inline dans des classes div.info et table.info. Ensuite 
 <!--Vidéo 137 : Shadow et remarques. Shadow en angais veut dire ombre. On va placer une ombre autour du contenu blanc. On va insérer box-shadow: avec les paramètres dans le div.contenu de la feuille CSS  et on va ajuster la position de recette sur la plan horizontal qui se décentre légérement quond on joue avec l'agrandissement de la fenetre à l'horizontal. C'est pas simple mais il y a quand même une solution. En utilisant overflow: visible; dans p.categorie et div.contenu. Ne pas hésiter à Revoir la vidéo 137 à partir de 3'20'' si besoin-->
 <!---->
 <!---->
+<!--LE RESPONSIVE DESIGN. A partir de la section 18. Vidéo 139 -->
+<!--On va voir comment faire pour que notre page web recette.html s’adapte à tout type d’écran. Cela s’appelle le : Responsive Design. Ca permet d’adapter le contenu en fonction de la taille de votre écran (ordinateur, tablette, téléphone). On doit disposer donc disposer certaines éléments différemment entre un ordinateur, tablette, téléphone. On va faire ça avec le Css. On pourrait utiliser Bootstrap https://getbootstrap.com/ . C’est une librairie qui s’appuie sur html, Css et JavaScript et qui permet de faire Responsive Design avec un système de grid. Mais nous allons faire ça au cours de la formation de Jonathan Roux directement avec du Css.-->
+<!--Vdéo 140 : Problématique et préparation.
+Au niveau de notre recette on va modifier le comportement quand on élargit ma fenêtre et aussi quand on l’a rétrécit. Quand on fait clic droit sur une page html puis Identifier. On a une petite icone : toggle device toolbar (à côté de la petite flèche). Quand on clique dessus on passe en mode responsive design. On peut sélectionner plusieurs tailles d’écran en cliquant sur Responsive dans le bandeau supérieur au centre. On peut revenir en arrière en cliquant de nouveau sur toggle device toolbar.
+Ne pas hésiter à naviguer sur https://www.w3schools.com/html/html_responsive.asp pour des informations.
+Pour pouvoir passer en mode responsive design on doit ajouter un < meta name= « viewport » avec des propriétés>.
+Cette ligne veut dire qu’il faut prendre en compte la largeur de l’écran pour l’affichage de notre page html.
+IL faut toujours penser qu’un utilisateur préfère scroller en vertical (de bas en haut) plutôt qu’en horizontal.-->
+<!--Vidéo 141 : Adapter les marges et contenu. On voudrait se débarasser du scroll horizontal lorsqu'on se trouve dans un écran type Smartphone. ON avait mis un min-width: 350p; dans div.contenu. ON voudrait par exemple retirer cette ligne pour les téléphones mobiles mais la conserver pour les ordinateurs. On va utilser des styles Css à certaines conditions notamment la condition ça va la largeur de la fenêtre. Taper sur Goolge : css responsive media queries (https://www.w3schools.com/css/css_rwd_mediaqueries.asp) . On peut voir une ligne exemple : @media only screen and (max-width: 600px) ça veut dire que si la fenêtre est inférieure à 600px de large à ce moment là on applique un style. Mais dans la formation Jonathan propose de faire  deux styles dans la page Css : les styles pour mobile et en bas les styles pour ordinateur. Pour distinguer entre mobile et ordinateur, on va utiliser la largeur de 768px. On va dire que si la fenêtre est supérieure à 768 pixel, on est sur ordinateur sinon on est sur mobile. on va donc utiliser cette condition :
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}      que l'on va adapter   mais ce sera min-width si l'écran à une largeur minimal de 768px alors on mettra nos styles pour ordinateurs. On fait une copie du div contenu que l'on va copier à l'interieur notre style pour ordinateur et on va le nettoyer un peu. On conserve que le min-width. Ensuite on va faire pour que sur mobile les marges soient réduites. On va donc jouer sur margin et padding de div.contenu dans le style pour mobile (le 1er div.contenu puisqu'on a dit que par défaut on fait la page pour mobile. Ce qui se trouve dans le style media only screen est pour ordinateur. Pour mobile on va réduie la marge du haut et celle des cotes. On va réduire aussi le padding-->
+<!---->
+<!--Vidéo 142. On va adpater la table info. On veut que sur mobile la hauteur soit réduite à 50px et la taille de la police réduite à 14px pour les titres et 12 pour le texte. On va faire une copie de table.info, table.info td et table.info th pour aller les mettre les styles pour ordinateur et on va nettoyer et modifier les valeurs.  -->
+<!---->
+<!--Vidéo 143 Disposition des colonnes. On va copier les différents styles de colonnes que l'on va copier dans les styles pour ordinateur -->
+<!---->
+<!--Vidéo 144 Cas des éceans trop grands. On veut agrandir les marges plutot que d'étirer le contenu au maximum. On va dire que quand on dépasse 900px on commence a être dans un écran large . On va donc rajouter une condition pour 900px  @media only screen and (min-width: 900px) {.....}  et on va adapter les valeurs et nettoyer. -->
+<!---->
+<!--Un gros morceau cette partie mais qui permet d'avoir des sites de qualité suivant la taille des écrans.-->
+
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rectte du gateau au chocolat.</title>
     <link rel="stylesheet" href="recette.css"/>
 </head>
