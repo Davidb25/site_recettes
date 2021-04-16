@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <!--On va mettre du style à notre page en utilisant le css (vidéo 121 de la formation)-->
+<!--On va travailler sur la page recette.html et lui appliquer du CSS. On pourra comparer le style avant et après-->
+<!--CSS veut dire cascading Style Sheets (feuille de style en français)-->
+<!-- Pour mettre des commentaires en CSS (dans les balises CSS) on peut faire /*pour commencer notre commentaire et */ pour terminer le commentaire.-->
+<!--Mon commentaire en HTLM-->      
+<!-- Couleurs et police :-->
+<!-- Dans Head, on crée un style pour la partie body pour la couleur d'arrière plan en #8BA1BB en utilisant background-color-->
+<!-- On change la police d'écriture pour toute la page en utilisant font-familly dans Style body{}. On va mettre en Arial.-->
+<!--On va mettre recette dans un petit rectangle noir, texte blanc. Paramètres dans style p{} et on va utiliser des sélecteurs pour appliquer nos paramètres que pour le paragraphe recette. Il y a deux tupes de sélecteurs : id et class (voir vidéo 123). ON utilise principalement les classes (class) les id sont généralement que très ponctuels. class permet de réutiliser le style pour plusieurs éléments. Id ne concerne qu'un seul élément alors que les classes peuvent s'appliquer pour plusieurs éléments. Voir code dans paragraphe <p> recette </p>. On lui a crée un id catégorie. <p id="categorie">Recette</p> On peut mettre le nom que l'on veut entre guillemet. On peut éventuellement créer un id pour plusieurs éléments et dans style on mettre juste # et le nom de la catégorie.-->
+<!--Pour les classe, au lieu de marquer id, il faut mettre class et pour créer les paramètres de style pour la classe on met un . (ex p.categorie {})  style, On peut séparer par une virgule voir exemple en bas de page avec style p.test, h2.test{}. Ce style s'apliquera à tout les classes p.test et h2.test. (Voir vidéo 123)-->
+<!--Strucutrer le documnent ( voir vidéo 124). On va rajouter des marges (margin) et du (padding). Le padding c'est la façon de rajouter des marges à l'interieur Création de la boite blanche avec notre contenu dedans et avec des marges sur le coté. On ajouter des balises <div> à partir du dessous du paragraphe recette et la fin de notre balise </div> tout à la fin juste avant la balise de fin </body>. On va appliquer un style à notre <div> en lui attribuant une classe "contenu". On veut metttre toutes les marges à 0 dans le style du body. Par défaut body a toujours une petite marge. Si on met margin:0 ; il n'y aura plus de marge. Maintenant on veut une marge de 60px dans le div="contenu". Si on met margin: 30px; ca applique une marge de 30 px en haut, en bas, à gauche et à droite. Si on met margin: 30px 100px; il appliquera une marge de 30px en haut et en bas, et 100px à gauche et à droite. On pourrait aussi mettre 4 composantes margin: 60px 100px 200px 10px; Dans ce cas on aurait une marge de 60px en haut, 100px à droite, 200px en bas et 10 px à gauche. On peut exprimer les marges en pourcentage totale de la taille de la fenetre, dans le cas par exemple ou étire sa fenetre dans le sens paysage on va agrandir la zone blanche et on voudrait plutot que la marge s'agrandissent.. On pourrait alors mettre margin: 50px 10% 50px 10%;  pour que la marge droite/gauche soit proportiennelle à la zone de la fenêtre. On va ensuite centrer le titre Le garteau au chocolat et mettre une petit marge sur la hauteur. On crée alors h1 dans style, on ne va pas créer  de class. On va esnuite une mage interne (padding dans le cadre blanc). Ca marche comme le margin mais pour des marges intérieures. On va centrer la phrase description. On va aussi faire pour que la phrase s'étale sur 400 pixels sur plusieurs lignes-->
+<!--Propriété "Display" pour le centrage d'un élément. Voir exemple avec la catégorie recette. Block / inline / inline block sont des paramètres que l'on peut utiliser avec display. Aller chercher des infos sur internet pour complémenter l'explication. Pas simple à comprendre...-->
+<!--(Vidéo 126) On va placer recette à cheval sur haut du cadre blanc. On voit l'ajout de 2 catégories dans une classe <div class ="centrer categorie"-->
+<!--(Vidéo 127) On va placer un div.séparateur de 1px de haut, 100 pixel de long et avec un background color noir. On va voir un nouveau paramètre auto-->
+<!--(Vidéos 128 : Propriété "Position"). On va d'abord recentrer la taille de l'image en rajoutant un width: 100% dans .centrer. On veut ensuite superposer la table sur notre image. On va mettre l'image et la table ensemble dans une div. Et on va faire du css in-line. C'est à dire qu'on va mettre le style dans la balise de la div. Postion prend par défaut la valeur statique, c'est à dire que l'élément se positionne en fonction de comment on le met. Relative permet de revenir le positionner par rapport à sa position d'origine. ON peut utiliser les paramètres top, bottom. On va mettre un bakgroud-color ainsi qu'une opacité que l'on peut écrire avec C0 en bout du code de la couleur hexadécimale #6C829D00 (FF totalement opaque, 00 100% transparent. C0 (Czéro) est la valeur de transparence souvent utilisée).
+Réorganisation des css inline dans des classes div.info et table.info. Ensuite un ait un centrage des valeurs de td en créant une class info td. Ca veut dire que Tous les td qui sont dans la classe info vont avoir un text-align:center. On va aurri réduire la taille des caractères de td à 14px et ceux des th en créant également une nouvelle class.info th. On voudrait également recoller un peu les diiférents éléments de la table. On va aligner les td vers le haut avec la propriété vertical-align:top et aligner vers le bas les th : vertical-align:bottom puis un petit padding-bottom dans le style de clss des Th--> 
+<!--(Vidéo 129 : Résoudre le problème d'affichage de la table quand on réduit la fenêtre. On va appliquer un min-width (largeur minimal de fenêtre) dans div.contenu. On pouura reduire la fenetre le contenu ne se decalera pas. Et on pourra scroller de manière horizontale. On va également agir sur la catégorie recette qui se centre par rapport à la largeur totale. Il reste centré par rapport à la fenêtre mais pas au contenu quand on passe à une taille de fenêtre en dessous de 350px -->
+<!--(Vidéo 130 Séparer notre fichier de style que l'on va mettre dans un fichier CSS et que l'on chargera ensuite dans notre page html. On va en faite enlever tout notre contenu dans la balise style ( par contre attention de ne pas prendre la balise style du début et de fin que l'on peut supprimer) dans head pour le mettre dans un fichier .css-. Pour le charger on insère un lien dans les balises head avec une balise link >> <link rel="stylesheet" (pour un fichier css) et ensuite href="recette.css"/>-->
+<!--(Vidéo 131 Limiter la hauteur de l'image). On va faire pour limiter la hauteur de l'image à 400 pixel avec max-height. On va créer une classe centrer info pour l'image dans le fichier recette.css. PAs simple à comprendre avec une nouvelle propriété object-fit : cover. En faite si on limite la hauteur de l'image à 400 pixel et qu'on étire la fenêtre l'image s'allongera et se déformera alors on utilise une nouvelle propriété object-fit : cover; pour que l'image se crope tout en conservant les 400px (ca zoome dans l'image sans que ça se déforme) que nous avions inséré en max-height. Dans le cas on met la page sur internet, l'image ne sera pas chargé du disque dur mais sera chargé à partir d'une url et du coup ca prendra un peu de temps au navigateur pour la charger ou alors dans le cas d'une erreur d'url pour le chargement de l'image. Pour éviter la latence au chargement de l'image, on peut lui donner une taille minimale. Voir les propriétés que nous avons ajouté dans img.info dans recette.css. On applique une min-height : 200px par exemple et une background-color: lightgrey comme cela au niveau esthétique ou en cas d'erreur de chargement d'image on aura une image grise et le contenu ne se retrouvera pas décalé. Voilà une astuce pour forcer le navigateur à recharger le fichier : on peut ajouter un ?id=9999  -->
+<!--(Vidéo 132 pour créer les colonnes avec la propriété float. On va créer une classe et une div pour la première colonne (Ingrédients / coloone 1) et ensuite on fera pour préparation colonne/2. Float:right; veut dire affiche toi à droite. On va attribuer un width à 50% pour la largeur ingrédients et un display: inline-block-->
+<!--(Vidéo 133 Style des titres des colonnes-> border). On va centrer les titres, changer la taille de la police et voir de nouvelles choses (comment les passer en majuscules directement sans avoirà changer le html et rajouter une bordure en utilisant la propriété border et on va rajouter aussi un petit peu de marge entre nos deux colonnes.) On va créer un classe commune colonne pour colonne1 et colonne2 voir dans le fichier css et l'appel du style dans le fichier html. On va appliquer une propriété text-transform:uppercase pour mettre la casse en majuscule. border dans div.colonne h2 pour mettre une bordure en attribuant une largeur de pixel, une couleur, et un paramètre : solid pour lui dire que c'est une ligne continu. Il est possible d'éventuellement la faire en pointillé. La propriété border peut être en botton, top, left, right peut--->
+<!--Vidéo 134 Style des ingrédients. On va faire la bordure autour des éléments d'ingrédients. On va créer une classe div.ingrédients pour p (paragraphes)-->
+<!--(Vidéo 135. Partie préparation. border et radius). IL est prévu de mettre des cercle avec des numéros selon l'ordre de préparation. On peut faire le rond en CSS mai assez complexe à faire car il faut ajouter pas mal de propriété mais on va le faire de manière beaucoup plus simple en transfomant la partie liste et on va faire à la place une table de deux colonnes et 4 lignes. On va créer une class table class=préparation et une class=numéro sur les paragraphes <p> des numéros de la table. La proprieté box-sizing: border-box; permet de calculer la taille de la boite des rectangles autour des numeros (suivnt leur taille de pixel) pour conserver la valeur de la boite déterminé à 25 pixel (en height) même si on a du padding. Pour avoir l'effet de rond on va utiliser la propriété border-radius. Ca arrondi les bords. Petits rayons par exemple à chaque coin si on met 4px. Pourarrondir totalement les bords pour avoir un cercle c'est 50% pour avoir un effet de bulle. On veut que nos bulles s'alignent en haut de la cellule en utilisant un vertical-align: top;. On va créer une class=preparation_etapes pour améliorer la police et le centrage des td préparation. On va créer une hauteur de ligne à 40px pour éviter que les bulles se rapprochent les unes et autres suivnat le nombre de ligne dans préparation (suivant la taille de la fenetre). On va alors appliquer un table.preparation tr-->
+<!--Vidéo 136 Propriété overflow pour résoudre le problème de débordement. Overflow permet de gérer tout ce qui déborde du conteneur. On va voir un nouveau sélecteur qui s'appelle *. L'* dans la page de css s'applique à tout le monde. Ca veut dire qu'on sélectionne tout dans notre page html. Dans notre formation sur la réalisation de cette page on va lui attribuer * { overflow: auto;} pour lui dire de réadapter la taille du conteneur pour contenir tout ce qui déborde. Il est conseillé de le mettre en haut de CSS. Mettre les styles génériques en haut du fichier et les styles plus spécifiques en bas.-->
+<!--Vidéo 137 : Shadow et remarques. Shadow en angais veut dire ombre. On va placer une ombre autour du contenu blanc. On va insérer box-shadow: avec les paramètres dans le div.contenu de la feuille CSS  et on va ajuster la position de recette sur la plan horizontal qui se décentre légérement quond on joue avec l'agrandissement de la fenetre à l'horizontal. C'est pas simple mais il y a quand même une solution. En utilisant overflow: visible; dans p.categorie et div.contenu. Ne pas hésiter à Revoir la vidéo 137 à partir de 3'20'' si besoin-->
+<!---->
+<!---->
+<head>
+    <meta charset="utf-8">
+    <title>Rectte du gateau au chocolat.</title>
+    <link rel="stylesheet" href="recette.css"/>
+</head>
+
+<body>
+   
+
+
+            <div class="contenu">
+
+
+                <div class="centrer categorie">
+                    <p class="categorie">Recette</p>
+                    </div>
+
+            <h1 align="left"><b> Le gateau au chocolat</b></h1>
+
+                <div class="separateur">
+
+
+                </div>
+
+
+            <div class="centrer">
+
+            <br>
+            <p class="description">Description : "Cette recette facile du gateau au chocolat est un grand classique. Elle fera plaisir aux grands gourmands"</p> 
+
+            </div>
+
+            <div class="info">
+            <img class="centrer info" src="https://jonathanroux.com/gateau.jpg?id=9999">
+                       <tr>
+                   
+                        <table class="info">
+                            <tr>
+                                <th><b>Difficulté</b></th>
+                                <th><b>Préparation</b></th>
+                                <th><b>Cuisson</b></th>
+                                <th><b>Temps total</b></th>
+                            </tr>
+                            <tr>
+                                <td>Facile</td>
+                                <td>10 min</td>
+                                <td>25 min</td>
+                                <td>35 min</td>
+                            </tr>
+                                         
+                        </table>
+
+            </div>
+            
+        <div>
+
+            <div class="colonne1 colonne">
+                <h2><b>Ingrédients</b></h2>
+                <div class="ingredients">
+                    <p>Chocolat noir : 200 g</p>
+                    <p>Sucre / 150 g</p>
+                    <p>Beurre : 200g</p>
+                    <p>Oeufs: 4</p>
+                    <p>Farine : 80 g</p>
+
+                 </div>
+                
+            </div>
+
+            <div class="colonne2 colonne">
+                <h2><b>Préparation</b></h2>
+                <table class="preparation">
+                    <tr><td><p class="numero">1</p></td><td class="preparation_etapes">Faire fondre le chocolat avec le beurre</td></tr>
+                    <tr><td><p class="numero">2</p></td><td class="preparation_etapes">Mélanger le sucre, les oeufs et la farine</td></tr>
+                    <tr><td><p class="numero">3</p></td><td class="preparation_etapes">Mélanger le tout pour faire une pâte</td></tr>
+                    <tr><td><p class="numero">4</p></td><td class="preparation_etapes">Etaler dans un plat et mettre au four</td></tr>
+                </table>
+            </div>
+        </div>
+
+            <br>
+            <br>
+
+</div>
+</body>
+
+
+
+</html>
